@@ -1,64 +1,66 @@
-import CartWidget from "./CartWidget";
+import CartWidget from "../CartWidget/CartWidget";
 import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
-import logoMenu from "./../assets/iconMenu.png";
-const Navbar = () => {
+// import styles from "../../components/NavBar/NavBar.module.css"
+//import logoMenu from "../../assets/iconMenu.png";
+const Navbar = (props) => {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark border-3 border-bottom border-primary p-0">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
-            <img className="iconMenu" src={logoMenu} alt="logo" />
-          </a>
             <button
               className="navbar-toggler"
               type="button"
               data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
+              data-bs-target="#navbarNavDropdown"
+              aria-controls="navbarNavDropdown"
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
               <span className="navbar-toggler-icon"></span>
             </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
+          <a className="navbar-brand" href="/">
+          <img className="iconMenu" src={props.logoMenu}  alt="logo" />
+          </a>
+          <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <p className="nav-link active m-2" aria-current="page" href="#">
+                <a className="nav-link active m-2" aria-current="page" href="/">
                   Home
-                </p>
+                </a>
               </li>
               <li className="nav-item">
-                <p className="nav-link m-2" href="#">
+                <a className="nav-link m-2" href="/">
                   Novedades
-                </p>
+                </a>
               </li>
               <li className="nav-item">
-                <p className="nav-link m-2" href="#">
+                <a className="nav-link m-2" href="/">
                   Contactos
-                </p>
+                </a>
               </li>
               <li className="nav-item">
-                <p className="nav-link m-2" href="#">
+                <a className="nav-link m-2" href="/">
                   Exclusivos
-                </p>
+                </a>
               </li>
             </ul>
             <ul className="navbar-nav">
-              <p
-                activeClassName="active"
+              <a
+                activeclassname="active"
                 className="nav-item nav-link"
-                to="/login"
+                to="/login" href="/"
               >
                 Login
                 <LoginOutlinedIcon />
-              </p>
+              </a>
             </ul>
           </div>
           <ul className="navbar-nav md-auto mb-2 mb-lg-0">
-          
-                <p className="nav-link" href="#">
-                  <CartWidget />
-                </p>
+                <li className="nav-item">
+                  <a className="nav-link" href="/">
+                    <CartWidget />
+                  </a>
+                </li>
           </ul>
         </div>
       </nav>

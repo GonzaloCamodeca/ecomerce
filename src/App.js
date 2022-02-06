@@ -1,13 +1,12 @@
 import "./App.css";
-import Navbar from "./components/NavBar";
-import ItemListContainer from "./components/ItemListContainer"
-
+import Header from "./components/Header/Header";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 
 //se declaran variables y se aplican mediante {}
 function App() {
   return (
     <>
-      <Navbar />
+      <Header />
       <ItemListContainer />
     </>
   );
