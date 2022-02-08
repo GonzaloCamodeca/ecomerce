@@ -14,9 +14,9 @@ const ItemCount = ({stock}) => {
     }
     return (
     <>
-    <p>{item} MG</p>
-    <button className="btn" onClick={increment}>Like</button>
-    <button className="btn" onClick={decrese}>DISLike</button>
+    <p>{item} Cantidad</p>
+    <button className="btn" onClick={increment}>+</button>
+    <button className="btn" onClick={decrese}>-</button>
     <hr />
     </>
     );

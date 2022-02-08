@@ -15,3 +15,9 @@ code {
 .iconMenu{
   width: 70px;
 }
+
+.imagenes{
+  width: 40%;
+  margin: auto;
+  padding:0;
+}
