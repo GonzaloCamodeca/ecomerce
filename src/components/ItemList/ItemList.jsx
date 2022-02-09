@@ -1,8 +1,8 @@
 import Item from "../Item/Item.jsx"
-const ItemList = () =>{
+const ItemList = ({juegos}) =>{
      return(
         <>
-        {Juegos.map(item =>
+        {juegos.map(item =>
           <Item
             key={item.id}
            id_game={item.id_game}

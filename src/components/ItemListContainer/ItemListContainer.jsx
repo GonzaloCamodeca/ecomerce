@@ -1,5 +1,5 @@
 import ItemList from "../ItemList/ItemList";
-const Juegos = [
+const juegos =  [
   {"id":1,
   "id_game":33,
    "thumb":"https://compass-ssl.xbox.com/assets/a4/2f/a42ff3fd-cba2-4abb-a15c-4065f76cb525.jpg?n=Mortal-Kombat-11_GLP-Page-Hero-0_1083x609_02.jpg",
@@ -31,11 +31,11 @@ const Juegos = [
   "normalPrice": 25.99,
   "cover_size": '50px'
   }, 
-]
+];
 const ItemListContainer = () =>{
   return(
     <>
-    <ItemList />
+    <ItemList juegos={juegos}/>
     </>
   )
 }
