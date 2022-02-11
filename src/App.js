@@ -1,15 +1,11 @@
 import "./App.css";
-import Header from "./components/Header/Header";
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
-
+import Home from "./pages/Home";
 //se declaran variables y se aplican mediante {}
 function App() {
   return (
     <>
-      <Header />
-      <ItemListContainer />
+      <Home />
     </>
   );
 }
-
 export default App;

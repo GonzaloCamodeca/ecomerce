@@ -1,5 +1,5 @@
 import ItemCount from "../ItemCount/ItemCount"
-const juegos = (props) => {
+const Juegos = (props) => {
 return(
     <>
     <div className="col card-group mt-2 p-4 container h-100">
@@ -9,12 +9,13 @@ return(
                 >
                   <div className="card-body">
                     <div className="card bg-dark text-white">
-                      <img className="imagenes" src={props.thumb} alt="imagenGames" />
+                      <img className="imagenes" src={props.thumb[2]} alt="imagenGames" />
                     </div>
                       <h5 className="card-title text-center m-3">
-                      {props.title}
+                      {props.title[2]}
                       </h5>
-                    <p className="text-center">Precio: {props.normalPrice}$</p>
+                      <p className="text-center">{props.description[2]}</p>
+                    <p className="text-center">Precio: {props.normalPrice[2]}$</p>
                     <div className="counter">
                       <ItemCount stock={5} />
                     </div>
@@ -25,4 +26,4 @@ return(
     </>
 )}
 
-export default juegos;
+export default Juegos;

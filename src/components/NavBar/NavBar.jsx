@@ -1,5 +1,6 @@
 import CartWidget from "../CartWidget/CartWidget";
 import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
+import { Link } from 'react-router-dom';
 // import styles from "../../components/NavBar/NavBar.module.css"
 //import logoMenu from "../../assets/iconMenu.png";
 const Navbar = (props) => {
@@ -18,30 +19,30 @@ const Navbar = (props) => {
             >
               <span className="navbar-toggler-icon"></span>
             </button>
-          <a className="navbar-brand" href="/">
+          <Link to={'/'} className="navbar-brand">
           <img className="iconMenu" src={props.logoMenu}  alt="logo" />
-          </a>
+          </Link>
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active m-2" aria-current="page" href="/">
+                <Link to={'/'} className="nav-link active m-2" aria-current="page">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link m-2" href="/">
-                  Novedades
-                </a>
+                <Link to={'/category/1'} className="nav-link m-2" href="/">
+                  PC
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link m-2" href="/">
-                  Contactos
-                </a>
+                <Link to={'/category/2'} className="nav-link m-2" href="/">
+                  PS4
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link m-2" href="/">
-                  Exclusivos
-                </a>
+                <Link to={'/category/3'} className="nav-link m-2" href="/">
+                  XBOX
+                </Link>
               </li>
             </ul>
             <ul className="navbar-nav">
