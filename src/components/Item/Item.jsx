@@ -15,11 +15,11 @@ return(
                       {props.title}
                       </h5>
                     <p className="text-center">Precio:{props.normalPrice}$</p>
-                    <div className="text-center">
-                    <ItemCount stock={5} />
-                    <button className="btn">Comprar</button>
+                    <div className="counter">
+                      <ItemCount stock={5} />
                     </div>
                     </div>
+                    <button className="btn btn-dark">Comprar</button>
                 </div>
               </div>
     </>
