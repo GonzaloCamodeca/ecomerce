@@ -28,7 +28,7 @@ const ItemListContainer = () =>{
   <> 
     <div className="row">
       {loading ? <img src='https://c.tenor.com/YAs3DgW0dbMAAAAC/loading-loader.gif' alt='Cargando...'></img>:
-        <ItemList items={items}></ItemList>}
+        <ItemList items={items} />}
     </div>
   </>
         );

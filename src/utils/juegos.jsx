@@ -9,7 +9,7 @@ const juegos =  [
     "id_game":2,
      "thumb":"https://compass-ssl.xbox.com/assets/a4/2f/a42ff3fd-cba2-4abb-a15c-4065f76cb525.jpg?n=Mortal-Kombat-11_GLP-Page-Hero-0_1083x609_02.jpg",
      "title":'Mortal Kombat 11 Ultimate',
-     "description":'este juego tratasobre ',
+     "description":'Las nuevas variantes de los personajes te ofrecen un control de tus kombatientes sin precedentes, ya que podrás personalizarlos como tú quieras. El motor gráfico, además de mostrar con gran detalle cada destrucción craneal y ocular, te acercará tanto al kombate que casi podrás sentirlo. Y eso no es todo: las cinemáticas del modo Historia te traen a los kombatientes klásicos y a nuevos personajes, que continuarán esta épica saga creada hace 25 años.',
      "normalPrice": 35.99,
      "cover_size": '50px'
     },

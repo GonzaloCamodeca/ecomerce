@@ -8,16 +8,8 @@ const Home = () => {
         <BrowserRouter>
              <NavBar logoMenu={logoMenu} alt='logoMenu' />
              <Routes>
-                  <Route path="/" element={
-                       <>
-                            <ItemListContainer />
-                       </>
-                  } />
-                  <Route path="/category/:id_game" element={
-                       <>
-                            <ItemListContainer />
-                       </>
-                  } />
+                  <Route path="/" element={<ItemListContainer />} />
+                  <Route path="/category/:id_game" element={<ItemListContainer />} />
              </Routes>
         </BrowserRouter>
    )

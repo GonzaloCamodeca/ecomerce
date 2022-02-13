@@ -7,6 +7,7 @@ const ItemList = (props) =>{
             key={item.id}
            id_game={item.id_game}
            title={item.title}
+           description={item.description}
            thumb={item.thumb}
            normalPrice={item.normalPrice}
            cover_size={item.cover_size}
