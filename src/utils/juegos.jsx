@@ -89,6 +89,4 @@ const juegos =  [
         }, 
     
   ];
-  module.exports = {
-    juegos,
-}
+ export default juegos;

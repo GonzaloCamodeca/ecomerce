@@ -2,7 +2,8 @@ import ItemList from "../ItemList/ItemList";
 import customFetch from "../../utils/customFetch";
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-const {juegos} = require("../../utils/juegos")
+import juegos from "../../utils/juegos"
+// const {juegos} = require("../../utils/juegos")
 
 const ItemListContainer = () =>{
   const [items, setItems] = useState([]);
@@ -31,6 +32,6 @@ const ItemListContainer = () =>{
         <ItemList items={items} />}
     </div>
   </>
-        );
+  );
 }
 export default ItemListContainer;

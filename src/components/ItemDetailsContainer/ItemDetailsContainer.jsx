@@ -2,7 +2,7 @@ import ItemDetails from "../ItemDetails/ItemDetails"
 import customFetch from "../../utils/customFetch";
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-const {juegos} = require("../../utils/juegos")
+import juegos from "../../utils/juegos"
 
 const ItemDetailContainer = () =>{
   const [items, setItems] = useState([]);
@@ -19,8 +19,7 @@ const ItemDetailContainer = () =>{
     } else {
          customFetch(2000, juegos.filter(item => item.id_game === parseInt(urlParams.id_game)))
          .then((res) => setItems(res))
-         .then(() => setLoading(false))
-         .catch((err) => console.log(err))               
+         .then(() => setLoading(false))              
     }
   }, [urlParams.id_game]);
 

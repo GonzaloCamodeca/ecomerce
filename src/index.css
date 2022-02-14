@@ -20,6 +20,11 @@ code {
   width: 65%;
   margin: auto;
 }
+.colorLetra {
+  font-size: 5fr;
+  color:black;
+}
+
 ::-webkit-scrollbar{
  width: 10px;
 }
@@ -30,4 +35,10 @@ code {
 ::-webkit-scrollbar-thumb{
   background: #6600ff;
   border-radius: 50px;
+}
+div{
+  background-color: #F3F2F1;
+}
+html {
+  background-color: #F3F2F1;
 }
