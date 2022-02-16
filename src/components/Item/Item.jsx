@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount"
 const juegos = (props) => {
 return(
     <>
-    <div className="col card-group mt-2 p-4 container h-100 shadow p-4 mb-5 bg-white rounded">
+    <div className="col card-group mt-2 p-4 container h-100">
                 <div
                   className=" card mb-3 mx-auto h-100 ms-4"
                   style={{ width: "18rem" }}
@@ -19,7 +20,9 @@ return(
                       <ItemCount stock={5} />
                     </div>
                     </div>
-                    <button className="btn btn-dark">Comprar</button>
+                    <button className="btn btn-dark">
+                    <Link to={`/item/${id}`}>Details</Link>
+                    </button>
                 </div>
               </div>
     </>

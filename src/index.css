@@ -21,7 +21,7 @@ code {
   margin: auto;
 }
 .colorLetra {
-  font-size: 5fr;
+  font-size: 1.2rem;
   color:black;
 }
 
@@ -36,9 +36,4 @@ code {
   background: #6600ff;
   border-radius: 50px;
 }
-div{
-  background-color: #F3F2F1;
-}
-html {
-  background-color: #F3F2F1;
-}
+

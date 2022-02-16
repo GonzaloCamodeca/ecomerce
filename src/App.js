@@ -1,12 +1,10 @@
 import "./App.css";
-//  import Home from "./pages/Home";
-import ItemDetailsContainer from "./components/ItemDetailsContainer/ItemDetailsContainer";
+import Home from "./pages/Home";
 //se declaran variables y se aplican mediante {}
 function App() {
   return (
     <>
-      {/* < Home /> */}
-      <ItemDetailsContainer />
+      <Home />
     </>
   );
 }

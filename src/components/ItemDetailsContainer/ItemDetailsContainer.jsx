@@ -8,20 +8,14 @@ const ItemDetailContainer = () =>{
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const urlParams = useParams();
-  console.log(urlParams.id_game);
+  console.log(urlParams.id);
 
   useEffect(() => {
-    if (urlParams.id_game === undefined) {
-         customFetch(2000, juegos[1])
+          customFetch(2000, juegos.find(item => item.id === parseInt(urlParams.id)))
          .then((res) => setItems(res))
          .then(() => setLoading(false))
-         .catch((err) => console.log(err))
-    } else {
-         customFetch(2000, juegos.filter(item => item.id_game === parseInt(urlParams.id_game)))
-         .then((res) => setItems(res))
-         .then(() => setLoading(false))              
-    }
-  }, [urlParams.id_game]);
+         .catch((error) => console.log(error))
+    }, [urlParams.id]);
 
   return(
   <> 

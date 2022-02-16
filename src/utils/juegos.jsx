@@ -17,7 +17,7 @@ const juegos =  [
     "id":2,
     "category":"XBOX",
     "id_game":3,
-     "thumb":"https://www.nintendo.com//content/dam/noa/es_LA/games/switch/a/ark-survival-evolved-switch/ark-survival-evolved-switch-hero.jpg",
+     "thumb":"https://generacionxbox.com/wp-content/uploads/2017/08/ark-survival-evolved-analisis-portada-generacion-xbox.jpg",
      "title":'ARK: Survival Evolved',
      "description":'Juega como un hombre o una mujer desnudo, congelándote y muriéndote de hambre en una isla misteriosa. Debes cazar, cosechar, crear objetos, cultivar, y construir refugios para sobrevivir. Usa tu habilidad y astucia para matar, domesticar, criar y cabalgar dinosaurios y otras criaturas primitivas.',
      "normalPrice": 3.99,
