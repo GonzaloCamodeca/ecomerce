@@ -28,7 +28,7 @@ const ItemListContainer = () =>{
   return(
   <> 
     <div className="row"  style={{width:"100%"}}>
-      {loading ? <img src='https://c.tenor.com/YAs3DgW0dbMAAAAC/loading-loader.gif' alt='Cargando...'></img>:
+      {loading ? <img src='https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_800,h_600/https://codigofuente.io/wp-content/uploads/2018/09/progress.gif' alt='Cargando...'></img>:
         <ItemList items={items} />}
     </div>
   </>
