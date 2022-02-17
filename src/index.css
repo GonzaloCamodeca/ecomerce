@@ -44,4 +44,6 @@ code {
   background: #6600ff;
   border-radius: 50px;
 }
-
+.menuwidth{
+  width: 100%;
+}

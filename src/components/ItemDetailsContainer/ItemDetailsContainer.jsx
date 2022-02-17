@@ -19,7 +19,7 @@ const ItemDetailContainer = () =>{
 
   return(
   <> 
-    <div className="row">
+    <div className="row" style={{width:"100%"}}>
       {loading ? <img src='https://c.tenor.com/YAs3DgW0dbMAAAAC/loading-loader.gif' alt='Cargando...'></img>:
         <ItemDetails items={items} />}
     </div>
