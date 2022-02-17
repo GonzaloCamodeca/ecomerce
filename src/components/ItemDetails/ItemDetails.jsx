@@ -9,7 +9,7 @@ const ItemDetails = ({ items }) => {
         >
           <div className="card-body">
             <div className="card bg-dark text-white">
-              <img className="imagenes" src={items.thumb} alt="imagenGames" />
+              <img className="img_details" src={items.thumb} alt="imagenGames" />
             </div>
             <h5 className="card-title text-center m-3">{items.title}</h5>
             <p className="text-left colorLetra m-0">

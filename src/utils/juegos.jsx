@@ -48,6 +48,7 @@ const juegos =  [
     "id_game":1,
     "thumb":"http://media.steampowered.com/apps/csgo/blog/images/fb_image.png?v=6",
     "title":'Counter-Strike: Global Offensive',
+    "description":"Counter-Strike: Global Offensive (CS:GO) amplía el juego de acción por equipos del que fue pionero cuando salió hace más de 20 años. CS:GO incluye nuevos mapas, personajes, armas y modos de juego, y ofrece versiones actualizadas del contenido clásico de Counter-Strike (de_dust2, etc.)",
     "normalPrice": 7,
     "cover_size": '50px'
     },
@@ -57,6 +58,7 @@ const juegos =  [
     "id_game":2,
     "thumb":"https://images.greenmangaming.com/00c7a0f6e00d4f2c9482122d9510a1bc/9cdc3a7ab4f24078b7d2c1ff1044715a.jpg",
     "title":'Shadow of the Tomb Raider',
+    "description":"En Shadow of the Tomb Raider: Definitive Edition, vive el capítulo final de la historia sobre el origen de Lara, en el que se convierte en la saqueadora de tumbas que está destinada a ser. Esta edición incluye el juego básico y siete tumbas de desafío de contenido descargable, así como armas, atuendos y habilidades descargables. Shadow of the Tomb Raider: Definitive Edition es la opción definitiva para vivir el momento que marcó la vida de Lara.",
     "normalPrice": 39.99,
     "cover_size": '50px'
     },
@@ -66,6 +68,7 @@ const juegos =  [
       "id_game":3,
       "thumb":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQHT3oJ5_n2wWEsYI10UbtUxcR8orePmONQg&usqp=CAU",
       "title":'Forza Moto7',
+      "description":"Forza Motorsport 7 es donde los pilotos de carreras, derrape y aceleración, tuneadores y creadores se reúnen en una comunidad dedicada a todo lo automotriz. Conduce los autos de tus sueños, con más de 700 asombrosos vehículos a elegir incluyendo la mayor colección de Ferraris, Porsches y Lamborghinis. Enfrenta retos en 30 destinos famosos y 200 pistas, donde las condiciones de la carrera cambian cada vez que regresas a la pista. ¡Vívelo todo en a asombrosos 60fps y resolución nativa de 4K en HDR!",
       "normalPrice": 23,
       "cover_size": '50px'
       },
@@ -75,6 +78,7 @@ const juegos =  [
         "id_game":2,
         "thumb":"https://i.ytimg.com/vi/EG5GkXU13WA/maxresdefault.jpg",
         "title":'Marvels Spider-Man',
+        "description":"Vive la adrenalina de la edición Juego del año de Marvel’s Spider-Man, que incluye el juego completo, además del contenido descargable completo de los arcos argumentales de Marvel’s Spider-Man: La ciudad que nunca duerme.",
         "normalPrice": 39.99,
         "cover_size": '50px'
         },
@@ -84,6 +88,7 @@ const juegos =  [
         "id_game":3,
         "thumb":"https://compass-ssl.xbox.com/assets/9c/94/9c944d9c-7ef1-4b46-9f68-9b02966d3993.jpg?n=Halo-Infinite_GLP-Page-Hero-0_1083x609.jpg",
         "title":'Halo Infinite',
+        "description":"La legendaria saga Halo regresa con la campaña de Master Chief más amplia hasta la fecha y una experiencia multijugador gratuita revolucionaria.",
         "normalPrice": 19.99,
         "cover_size": '50px'
         }, 

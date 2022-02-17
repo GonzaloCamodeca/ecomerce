@@ -5,6 +5,7 @@ const ItemList = (props) =>{
         {props.items.map(item =>
           <Item
             key={item.id}
+            id={item.id}
            id_game={item.id_game}
            title={item.title}
            description={item.description}

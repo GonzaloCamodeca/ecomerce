@@ -21,7 +21,7 @@ return(
                     </div>
                     </div>
                     <button className="btn btn-dark">
-                    <Link to={`/item/${id}`}>Details</Link>
+                    <Link to={`/item/${props.id}`}>Details</Link>
                     </button>
                 </div>
               </div>
