@@ -58,9 +58,9 @@ const Navbar = (props) => {
           </div>
           <ul className="navbar-nav md-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link" href="/">
+                  <Link to={'/cart'} className="nav-link" href="/">
                     <CartWidget />
-                  </a>
+                  </Link>
                 </li>
           </ul>
         </div>

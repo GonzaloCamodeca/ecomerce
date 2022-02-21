@@ -1,7 +1,9 @@
 import { useState } from "react";
 import styles from "../ItemCount/ItemCount.module.css"
-const ItemCount = ({stock}) => {
-   const [item, setItem] = useState(1);
+import Button from '@mui/material/Button';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+const ItemCount = ({stock, initial, onAdd}) => {
+   const [item, setItem] = useState(initial);
    const increment = () =>{
        if(item >= 1 && item < stock){
            setItem(item + 1)
@@ -20,6 +22,10 @@ const ItemCount = ({stock}) => {
             <div>{item}</div>
             <button className={styles.designe_btn}  onClick={decrese}>-</button>
         </div>
+    <div className="counter">
+        <Button endIcon={<AddShoppingCartIcon />} color="primary" variant="contained"size="large" onClick={() => onAdd(item)}>Add to cart
+        </Button>
+    </div>
     </div>
     <hr />
     </>

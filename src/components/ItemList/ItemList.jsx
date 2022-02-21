@@ -6,6 +6,8 @@ const ItemList = (props) =>{
           <Item
             key={item.id}
             id={item.id}
+            category={item.category}
+            stock={item.stock}
            id_game={item.id_game}
            title={item.title}
            description={item.description}
