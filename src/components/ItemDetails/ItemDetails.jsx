@@ -1,15 +1,17 @@
 import ItemCount from "../ItemCount/ItemCount";
 import Checkout from "../Checkout/Checkout"
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { CartContext } from "../../Context/CartContext";
 const ItemDetails = ({ items }) => {
   const [itemQuantity, setItemQuantity] = useState(1);
   const [isCheckout, setIsCheckout] = useState(false);
-
-  const onAdd = (cantidad) => {
-       alert(`${cantidad} Units successfully added to cart`);
-       console.log(cantidad);
-       setItemQuantity(cantidad);
+  const test = useContext(CartContext);
+  const onAdd = (quantity) => {
+       alert(`${quantity} Units successfully added to cart`);
+       console.log(quantity);
+       setItemQuantity(quantity);
       setIsCheckout(true);
+      test.addToCart(items,quantity);
   }
   return (
     <>

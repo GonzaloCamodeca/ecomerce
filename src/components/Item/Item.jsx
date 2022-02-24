@@ -10,14 +10,16 @@ return(
                 >
                   <div className="card-body">
                     <div className="card bg-dark text-white">
+                    <Link className="a" to={`/item/${props.id}`}>
                       <img className="imagenes" src={props.thumb} alt="imagenGames" />
+                    </Link>
                     </div>
                       <h5 className="card-title text-center m-3">
                       {props.title}
                       </h5>
                       <hr/>
                     <h6 className="text-center">Precio: {props.normalPrice}$</h6>
-                    <p className="text-center">Available units <strong> {props.stock}</strong></p>
+                    <p className="text-center">Stock <strong> {props.stock}</strong></p>
                     <p>Plataform <strong>{props.category}</strong></p>
                     {/* <div className="counter">
                       <ItemCount stock={5} />
