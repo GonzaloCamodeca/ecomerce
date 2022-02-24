@@ -16,7 +16,7 @@ import {createContext, useState} from "react"
 
              setCartList([ 
                  ...cartList,{
-                 key:item.id,
+                    key:item.id,
                   id: item.id,
                   title: item.title,
                   thumb:item.thumb,
@@ -28,14 +28,14 @@ import {createContext, useState} from "react"
     const deleteProduct = (id) =>{
         setCartList(cartList.filter((item) => item.id !== id));
     }
-    const removeItems = () =>{
-        setCartList([])
+    const clear = () =>{
+        setCartList([]);
     }
     const isInCart = (idProduct) => {
         return cartList.find((item) => item.id === idProduct) ? true : false;
    }
      return(
-        <CartContext.Provider value={{cartList, addToCart, deleteProduct, removeItems}}>
+        <CartContext.Provider value={{cartList, addToCart, deleteProduct, clear}}>
             {children}
         </CartContext.Provider>
      )
