@@ -18,9 +18,11 @@ import {createContext, useState} from "react"
                  ...cartList,{
                     key:item.id,
                   id: item.id,
+                  category:item.category,
                   title: item.title,
                   thumb:item.thumb,
                   normalPrice:item.normalPrice,
+                  itemQty:item.itemQty,
                   qty: quantity
               }])
          }
@@ -34,8 +36,12 @@ import {createContext, useState} from "react"
     const isInCart = (idProduct) => {
         return cartList.find((item) => item.id === idProduct) ? true : false;
    }
+   const calcItemsQty = () => {
+       let qtys = cartList.map(item => item.itemQty);
+       return qtys.reduce(((previusValue, currentValue)=> previusValue + currentValue), 0)
+   }
      return(
-        <CartContext.Provider value={{cartList, addToCart, deleteProduct, clear}}>
+        <CartContext.Provider value={{cartList, addToCart, deleteProduct, clear, calcItemsQty}}>
             {children}
         </CartContext.Provider>
      )

@@ -7,7 +7,9 @@ const Cart = () => {
     return(
       <>
       <div className="flex justify-between border-b pb-8">
-        <h1 className="card-title">Cart</h1></div>
+        <h1 className="card-title ub">Cart ({cartList.calcItemsQty()})</h1>
+        
+        </div>
       <div className='flex mt-10 mb-5 w-4/5'>
       <h3 className='font-semibold text-gray-600 text-xs uppercase w-4/5'>
               Product Details
@@ -22,11 +24,15 @@ const Cart = () => {
               Total
             </h3>
       </div>
-        
         {
+          (cartList.cartList.length > 0)
+          ? <button  className='bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white margin'  onClick={cartList.clear}>Buy All</button>
+          : <h5 className="text-center">Your cart is empty</h5>
+        }
+        {
+          cartList.cartList.length > 0 &&
           cartList.cartList.map(item =>(
-           
-            <div className="container mx-auto mt-t">
+            <div className="container mx-auto mt-t" key={item.id}>
               <div className="flex w-5/5">
               <div className="justify-between border-b pb-8">
                 <div className="w-autos">
@@ -36,18 +42,18 @@ const Cart = () => {
                 <div className='flex flex-col justify-between ml-4 flex-grow'>
                 <span className="font-bold text-sm">
                 {item.title}
+                <span className='text-red-500 text-xs'> {item.category}</span>
                 </span>
                 </div>
               <p className="">Units <strong>{item.qty}</strong></p>
-              <h6 className="text-center w-1/5 font-semibold text-sm">Unit Price: {item.normalPrice}$</h6>
+              <h6 className="text-center w-1/5 unitPrice  font-semibold text-sm">Unit Price: {item.normalPrice}$</h6>
               <h6 className="text-center w-1/5 font-semibold text-sm">Total Price: {item.normalPrice*item.qty}$</h6>
-                    <button className="font-semibold hover:text-red-500 text-gray-500 text-xs" onClick={() => cartList.deleteProduct(item.id)}>
+                    <button className="font-semibold hover:text-red-500 text-gray-500 text-xs delete" onClick={() => cartList.deleteProduct(item.id)}>
                        Delete item
                     </button>
               </div>
           </div>
             ))}
-            <button  className='bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full'  onClick={cartList.clear}>Buy All</button>
               <Link
             to='/'
             className='flex font-semibold text-indigo-600 text-sm mt-10'
