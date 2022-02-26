@@ -22,7 +22,7 @@ import {createContext, useState} from "react"
                   title: item.title,
                   thumb:item.thumb,
                   normalPrice:item.normalPrice,
-                  itemQty:item.itemQty,
+                //   itemQty:item.itemQty,
                   qty: quantity
               }])
          }
@@ -37,7 +37,7 @@ import {createContext, useState} from "react"
         return cartList.find((item) => item.id === idProduct) ? true : false;
    }
    const calcItemsQty = () => {
-       let qtys = cartList.map(item => item.itemQty);
+       let qtys = cartList.map(item => item.qty);
        return qtys.reduce(((previusValue, currentValue)=> previusValue + currentValue), 0)
    }
      return(
