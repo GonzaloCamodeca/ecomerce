@@ -46,14 +46,25 @@ const Cart = () => {
                 </span>
                 </div>
               <p className="">Units <strong>{item.qty}</strong></p>
-              <h6 className="text-center w-1/5 unitPrice  font-semibold text-sm">Unit Price: {item.normalPrice}$</h6>
-              <h6 className="text-center w-1/5 font-semibold text-sm">Total Price: {item.normalPrice*item.qty}$</h6>
+              <h6 className="text-center w-1/5 unitPrice  font-semibold text-sm">Unit Price:
+              $ {item.normalPrice}</h6>
+              <h6 className="text-center w-1/5 font-semibold text-sm">Total Price: $ {item.normalPrice*item.qty}</h6>
                     <button className="font-semibold hover:text-red-500 text-gray-500 text-xs delete" onClick={() => cartList.deleteProduct(item.id)}>
                        Delete item
                     </button>
               </div>
           </div>
             ))}
+            <section>
+            { (cartList.cartList.length > 0)
+            ? <article>
+              <h5 className="title text-center">
+              Total
+            <span className="text-center"> Cost $ {cartList.total_cost()}</span>
+            </h5>
+            </article> : <h3> </h3>
+            }
+            </section>
               <Link
             to='/'
             className='flex font-semibold text-indigo-600 text-sm mt-10'

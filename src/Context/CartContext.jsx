@@ -6,26 +6,24 @@ import {createContext, useState} from "react"
      const [cartList, setCartList] = useState([]);
 
      const addToCart = (item, quantity) =>{
-         if(isInCart(item.id)){
-             for (const products of cartList){
-                 if (products.id === item.id){
-                     products.qty += quantity
-                 }
-             }
+         let found = cartList.find(products => products.id === item.id);
+         if (found === undefined){
+            setCartList([ 
+                ...cartList,{
+                   key:item.id,
+                 id: item.id,
+                 category:item.category,
+                 title: item.title,
+                 thumb:item.thumb,
+                 normalPrice:item.normalPrice,
+                 qty: quantity
+               }])
+               
          } else {
-
-             setCartList([ 
-                 ...cartList,{
-                    key:item.id,
-                  id: item.id,
-                  category:item.category,
-                  title: item.title,
-                  thumb:item.thumb,
-                  normalPrice:item.normalPrice,
-                //   itemQty:item.itemQty,
-                  qty: quantity
-              }])
+             found.qty += quantity
+             setCartList([...cartList])
          }
+         
      }
     const deleteProduct = (id) =>{
         setCartList(cartList.filter((item) => item.id !== id));
@@ -33,15 +31,24 @@ import {createContext, useState} from "react"
     const clear = () =>{
         setCartList([]);
     }
-    const isInCart = (idProduct) => {
-        return cartList.find((item) => item.id === idProduct) ? true : false;
-   }
+//     const isInCart = (idProduct) => {
+//         return cartList.find((item) => item.id === idProduct) ? true : false;
+//    }
    const calcItemsQty = () => {
        let qtys = cartList.map(item => item.qty);
        return qtys.reduce(((previusValue, currentValue)=> previusValue + currentValue), 0)
    }
+   const total_cost = () => {
+    let total = 0;
+    
+    for (const products of cartList) {
+         total = total + (products.normalPrice * products.qty);
+         console.log(total);
+    }
+    return total;
+}
      return(
-        <CartContext.Provider value={{cartList, addToCart, deleteProduct, clear, calcItemsQty}}>
+        <CartContext.Provider value={{cartList, addToCart, deleteProduct, clear, calcItemsQty,total_cost}}>
             {children}
         </CartContext.Provider>
      )
