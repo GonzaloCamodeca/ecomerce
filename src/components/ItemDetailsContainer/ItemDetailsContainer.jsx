@@ -1,21 +1,31 @@
 import ItemDetails from "../ItemDetails/ItemDetails"
-import customFetch from "../../utils/customFetch";
+// import customFetch from "../../utils/customFetch";
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import juegos from "../../utils/juegos"
+import db from "../../utils/firebaseConfig";
+import { collection, getDocs } from "firebase/firestore";
+// import juegos from "../../utils/juegos"
 
 const ItemDetailContainer = () =>{
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const urlParams = useParams();
-  console.log(urlParams.id);
+  
 
   useEffect(() => {
-          customFetch(2000, juegos.find(item => item.id === parseInt(urlParams.id)))
-         .then((res) => setItems(res))
-         .then(() => setLoading(false))
-         .catch((error) => console.log(error))
-    }, [urlParams.id]);
+    const firestoreFetch = async () => {
+      const querySnapshot = await getDocs(collection(db, "juegos"));
+      return querySnapshot.docs.map( document => ({
+        id: document.id,
+        ...document.data()
+      }
+      ))
+    }
+    firestoreFetch()
+    .then(result => setItems(result))
+    .then(() => setLoading(false))
+    .catch(err => console.log(err))
+  }, [urlParams.id]);
 
   return(
   <> 
