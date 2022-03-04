@@ -1,9 +1,7 @@
 import ItemList from "../ItemList/ItemList";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import db from "../../utils/firebaseConfig";
-import { collection, getDocs } from "firebase/firestore";
-
+import { firestoreFetch, firestoreFetchSome} from "../../utils/FirestoreFetch"
 // const {juegos} = require("../../utils/juegos")
 
 const ItemListContainer = () => {
@@ -11,21 +9,35 @@ const ItemListContainer = () => {
   const [loading, setLoading] = useState(true);
   const urlParams = useParams();
   
-
   useEffect(() => {
-    const firestoreFetch = async () => {
-      const querySnapshot = await getDocs(collection(db, "juegos"));
-      return querySnapshot.docs.map( document => ({
-        id: document.id,
-        ...document.data()
-      }
-      ))
+    if (urlParams.id_game === undefined) {
+         // function Fecth para setear los datos de la consulta
+         firestoreFetch()
+              .then(consulta => setItems(consulta))
+              .then(() => setLoading(false))
+              .catch(error => console.log('Hubo un error en la consulta a la DB',error));
+    } else {
+         // function Fecth con parámetros para filtrar (campo y valor)
+         firestoreFetchSome('id_game', urlParams.id_game)
+         .then(consulta => setItems(consulta))
+         .then(() => setLoading(false))
+         .catch(error => console.log('Hubo un error en la consulta a la DB', error));
     }
-    firestoreFetch()
-    .then(result => setItems(result))
-    .then(() => setLoading(false))
-    .catch(err => console.log(err))
-  }, [urlParams.id_game]);
+}, [urlParams.id_game]);
+  // useEffect(() => {
+  //   const firestoreFetch = async () => {
+  //     const querySnapshot = await getDocs(collection(db, "juegos"));
+  //     return querySnapshot.docs.map( document => ({
+  //       id: document.id,
+  //       ...document.data()
+  //     }
+  //     ))
+  //   }
+  //   firestoreFetch()
+  //   .then(result => setItems(result))
+  //   .then(() => setLoading(false))
+  //   .catch(err => console.log(err))
+  // }, [urlParams.id_game]);
 
   return (
     <>

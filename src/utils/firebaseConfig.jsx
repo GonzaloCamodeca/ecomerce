@@ -10,6 +10,16 @@ const firebaseConfig = {
   messagingSenderId: "918340015922",
   appId: "1:918340015922:web:a0ea51c30d7a3e9c28e92b"
 };
+// export const firestoreFetchOne = async (idItem) =>{
+//   const docRef = doc(db,"juegos", idItem);
+//   const docSnap = await getDoc(docRef);
+//   if (docSnap.exists()){
+//     return{
+//       id: idItem,
+//       ...docSnap.data()
+//     }
+//   } else { console.log("No such document!")}
+// }
   
 
 // Initialize Firebase

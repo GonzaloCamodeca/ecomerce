@@ -26,9 +26,7 @@ return(
                     </div> */}
                     </div>
                     <hr/>
-                    <button className="btn btn-dark">
-                    <Link className="a" to={`/item/${props.id}`}>Details</Link>
-                    </button>
+                    <Link className="a btn btn-dark" to={`/item/${props.id}`}>Details</Link>
                 </div>
               </div>
     </>
