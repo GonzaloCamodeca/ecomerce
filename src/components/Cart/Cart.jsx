@@ -1,9 +1,42 @@
 import { useContext } from "react";
 import  {CartContext}  from "../../Context/CartContext";
+import { collection, doc, serverTimestamp, setDoc, updateDoc, increment} from "firebase/firestore";
+import db from "../../utils/firebaseConfig";
 import { Link } from 'react-router-dom';
-// import styles from '../Cart/Cart.module.css';
+// import styles from '../Cart/Cart.module.css'
 const Cart = () => {
     const cartList  = useContext(CartContext);
+    const createOrder = () => {
+      let order = {
+        buyer:{
+          email:"gonzalocamodeca",
+          name:"gonzalokpo020220@hotmail.com",
+          phone:"1124646937",
+        },
+        date: serverTimestamp(),
+        items: cartList.cartList.map((it) =>{
+          return{id: it.id, normalPrice: it.normalPrice, title: it.title, qty: it.qty}
+        }),
+        total: cartList.total_cost()
+      }
+      console.log(order)
+      const createOrderInFirestore = async () =>{
+        const newOrderRef = doc(collection(db,"orders"));
+        await setDoc(newOrderRef, order) 
+        return newOrderRef;
+      }
+      createOrderInFirestore()
+       .then(results => {alert("Your order has been created " + results.id); 
+       cartList.cartList.map(async (item) => {
+         const itemRef = doc(db,"juegos", item.id)
+         await updateDoc(itemRef, {
+           stock: increment (-item.qty)
+          })  
+         
+       })
+       cartList.clear();})
+       .catch(error => console.log(error))
+    }
     return(
       <>
       <div className="flex justify-between border-b pb-8">
@@ -26,9 +59,10 @@ const Cart = () => {
       </div>
         {
           (cartList.cartList.length > 0)
-          ? <button  className='bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white margin'  onClick={cartList.clear}>Buy All</button>
+          ? <button  className='bg-indigo-500 font-semibold hover:bg-indigo-600 py-2 text-sm text-white margin'  onClick={cartList.clear}>Delete all</button>
           : <h5 className="text-center">Your cart is empty</h5>
         }
+        
         {
           cartList.cartList.length > 0 &&
           cartList.cartList.map(item =>(
@@ -64,6 +98,13 @@ const Cart = () => {
             </h5>
             </article> : <h3> </h3>
             }
+            { // este es el button para crear orden
+        
+        (cartList.cartList.length > 0)
+        ? <button  className='bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white margin'  onClick={createOrder}>Buy All</button>
+        : <h5 className="text-center">please go back and select some products</h5>
+          
+        }
             </section>
               <Link
             to='/'
