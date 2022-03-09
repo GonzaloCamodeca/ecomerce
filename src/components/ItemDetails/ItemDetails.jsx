@@ -2,6 +2,8 @@ import ItemCount from "../ItemCount/ItemCount";
 import Checkout from "../Checkout/Checkout"
 import { useContext, useState } from 'react';
 import { CartContext } from "../../Context/CartContext";
+import {Button, Carousel} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 const ItemDetails = ( {items} ) => {
   const [itemQuantity, setItemQuantity] = useState(1);
   const [isCheckout, setIsCheckout] = useState(false);
@@ -9,36 +11,46 @@ const ItemDetails = ( {items} ) => {
 
   const onAdd = (quantity) => {
        alert(`${quantity} Units successfully added to cart`);
-       console.log(quantity);
+    //    console.log(quantity);
        setItemQuantity(quantity);
       setIsCheckout(true);
       test.addToCart(items,quantity);
   }
   return (
     <>
-      <div className="col card-group mt-2 p-4 container h-100">
         <div
-          className=" card mb-3 mx-auto h-100 ms-4"
-          style={{ width: "18rem" }}
-        >
-          <div className="card-body">
-            <div className="card bg-dark text-white">
-              <img className="img_details" src={items.thumb} alt="imagenGames" />
+            className="container d-flex justify-content-end m-auto align-items-center row mt-5">
+            <div className="text-center col-6">
+                <div className="d-block">
+                    <div>
+                        <Carousel variant="dark">
+                            <Carousel.Item>
+                                <img className="img_details" src={items.thumb} alt="First slide" />
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img className="img_details" src={items.thumb2} alt="Second slide" />
+                            </Carousel.Item>
+                        </Carousel>
+                    </div>
+                </div>
             </div>
-            <h4 className="card-title text-center m-3">{items.title}</h4>
-            <p className="text-left colorLetra m-0">
-              Description: {items.description}
-            </p>
-            <h5 className="text-center">Precio: {items.normalPrice}$</h5>
-          </div>
-            <div>
-            {isCheckout ?
-                    <Checkout cantidad={itemQuantity}></Checkout>
+            <div className="cardDetails text-center col-6">
+                <div className="card-body">
+                    <h2 className="card-text text-uppercase fs-5"><b>{items.title}</b></h2>
+                    <h6 className="card-text mt-3"><b>Precio: </b>$ {items.normalPrice}</h6>
+                    <br />
+                    <p className="textDetail">{items.description}</p>
+                    <div>
+                    {isCheckout ?
+                    <Checkout className="" cantidad={itemQuantity}></Checkout>
                     :
                     <ItemCount stock={items.stock} initial={itemQuantity} onAdd={onAdd}></ItemCount>}
+                    <Link to="/"><Button variant="dark m-3">Volver a Home</Button></Link>
+                    </div>
+                </div>
+                
             </div>
-        </div> 
-      </div>
+        </div>  
     </>
   );
 };

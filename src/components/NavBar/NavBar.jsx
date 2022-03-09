@@ -1,8 +1,6 @@
 import CartWidget from "../CartWidget/CartWidget";
 import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 import { Link } from 'react-router-dom';
-// import styles from "../../components/NavBar/NavBar.module.css"
-//import logoMenu from "../../assets/iconMenu.png";
 const Navbar = (props) => {
   return (
     <>

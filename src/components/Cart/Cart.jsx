@@ -3,9 +3,9 @@ import  {CartContext}  from "../../Context/CartContext";
 import { collection, doc, serverTimestamp, setDoc, updateDoc, increment} from "firebase/firestore";
 import db from "../../utils/firebaseConfig";
 import { Link } from 'react-router-dom';
-// import styles from '../Cart/Cart.module.css'
 const Cart = () => {
     const cartList  = useContext(CartContext);
+    //crea la orden
     const createOrder = () => {
       let order = {
         buyer:{
@@ -13,32 +13,36 @@ const Cart = () => {
           name:"gonzalokpo020220@hotmail.com",
           phone:"1124646937",
         },
-        date: serverTimestamp(),
+        date: serverTimestamp(), // agrega la fecha 
+        //lo mapea y devuelve la compra
         items: cartList.cartList.map((it) =>{
           return{id: it.id, normalPrice: it.normalPrice, title: it.title, qty: it.qty}
         }),
         total: cartList.total_cost()
       }
-      console.log(order)
+      //console.log(order)
+      //crea la orden en firebase
       const createOrderInFirestore = async () =>{
         const newOrderRef = doc(collection(db,"orders"));
         await setDoc(newOrderRef, order) 
         return newOrderRef;
       }
+      //devuelve el id de la orden 
       createOrderInFirestore()
        .then(results => {alert("Your order has been created " + results.id); 
        cartList.cartList.map(async (item) => {
          const itemRef = doc(db,"juegos", item.id)
          await updateDoc(itemRef, {
+           //lo resta del stcok del producto en firebase
            stock: increment (-item.qty)
           })  
-         
        })
        cartList.clear();})
        .catch(error => console.log(error))
     }
+    // se renderiza la card 
     return(
-      <>
+      <> 
       <div className="flex justify-between border-b pb-8">
         <h1 className="card-title ub">Cart ({cartList.calcItemsQty()})</h1>
         
@@ -121,4 +125,3 @@ const Cart = () => {
       </>
 )}
 export default Cart;
-
