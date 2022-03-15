@@ -10,7 +10,8 @@ Una vez descargado el proyecto abrir con el editor de codigo
 - 2 Crear en src un archivo .env y pegar "REACT_APP_FIREBASE_API_KEY = AIzaSyAxCKty6DWXXRGUJwGWSvCqreHNsCThWQA" SIN COMILLAS;
 - 3 En consola escribir npm start
 
-###Herramientas utilizadas 🔧
-<a href="https://getbootstrap.com/">Boostrap </a>
-<a href="https://tailwindcss.com/">TailWindCss </a>
-<a href="https://mui.com/">Material UI </a>
+### Herramientas utilizadas 🔧
+
+-<a href="https://getbootstrap.com/">Boostrap </a>
+-<a href="https://tailwindcss.com/">TailWindCss </a>
+-<a href="https://mui.com/">Material UI </a>
